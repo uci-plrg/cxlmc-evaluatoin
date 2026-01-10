@@ -237,11 +237,11 @@ build/cxlmc/init -n 2 -f "build/P-Masstree/libexample_lib.so 40 4" >> $RESULTS_D
 # Bug 1 (verified, no fix)
 copy_cxlmc_libs build/cxlmc
 build CXL-SHM
-build/cxlmc/init -n 2 -f "build/CXL-SHM/libcxlmalloc-benchmark-kv.so 1" -f "build/CXL-SHM/librecovery_check.so" >> $RESULTS_DIR/CXL-SHM-bug1.txt 2>&1
+build/cxlmc/init -n 2 -f "build/CXL-SHM/librecovery_check.so" -f "build/CXL-SHM/libcxlmalloc-benchmark-kv.so 1"  >> $RESULTS_DIR/CXL-SHM-bug1.txt 2>&1
 
 # Bug 2 (verified)
 enable_bug "$BENCH_PATH/CXL-SHM/src/recovery.cpp" 282
 copy_cxlmc_libs build/cxlmc
 build CXL-SHM
 disable_bug "$BENCH_PATH/CXL-SHM/src/recovery.cpp" 282
-build/cxlmc/init -n 2 -f "build/CXL-SHM/libcxlmalloc-test-stress.so 1" -f "build/CXL-SHM/librecovery_check.so" >> $RESULTS_DIR/CXL-SHM-bug2.txt 2>&1
+build/cxlmc/init -n 2 -f "build/CXL-SHM/librecovery_check.so" -f "build/CXL-SHM/libcxlmalloc-test-stress.so 1">> $RESULTS_DIR/CXL-SHM-bug2.txt 2>&1
